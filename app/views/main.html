@@ -1,11 +1,17 @@
 <main>
-    <input type="text" name="" id="">
-    <input type="button" value="+">
+    <form action="#" class="row">
+        <div class="col-xs-10">
+            <input type="text" name="" id="" class="col-xs-12">
+        </div>
+        <div class="pull-left">
+            <input type="button" value="+" class="col-xs-12">
+        </div>
 
-    <ul>
-        <li>
+    </form>
+    <ul class=" todo-list-wrapper">
+        <li ng-repeat="item in ['todo1', 'todo2', 'todo3', 'todo3'] track by $index" class="col-xs-12">
             <input type="checkbox" name="" id="" class="pull-left">
-            <div class="item pull-left">sample todo</div>
+            <div class="item pull-left">{{item}}</div>
         </li>
     </ul>
 
