@@ -1,19 +1,21 @@
-<main>
+<main ng-keydown="handleKey($event)">
     <form action="#" class="row" ng-submit="addTodo()">
         <div class="col-xs-10">
             <input type="text" name="" id="" class="col-xs-12" ng-model="formTodoText" required>
         </div>
         <div class="pull-left">
-            <input type="submit" value="+" class="col-xs-12" >
+            <input type="submit" value="+" class="col-xs-12">
         </div>
 
     </form>
     <ul class=" todo-list-wrapper">
-        <li ng-repeat="item in todos | orderBy : 'priority' " class="col-xs-12">
-            <input type="checkbox" name="" id="" class="pull-left" ng-checked={{item.done}} ng-model="done" ng-change="markCompleted()">
-            <div class="item pull-left">{{item.text}}</div>
-            <div class="pull-right">{{item.priority}}</div>
+        <li ng-repeat="item in todos | orderBy : 'priority' " class="col-xs-12" >
+            <label for='todoItem{{$index}}'>
+                <input type="checkbox" name="" id="todoItem{{$index}}" class="pull-left" ng-checked= {{item.done}} ng-model="done" ng-hide="checked" ng-change="removeTodo($index)">
+                <div class="item pull-left">{{item.text}}</div>
+                <div class="pull-right">{{item.priority}}</div>
+            </label>
         </li>
     </ul>
-    <button ng-click="clearCompleted()">clear</button>
+
 </main>
